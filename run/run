@@ -1,0 +1,29 @@
+#!/bin/bash
+
+clear; clear;
+
+find "../lib" -name *.o | while read sFile; do
+	rm "$sFile";
+done;
+
+autoheader -r ..;
+#make && ./runnable;
+
+sObjectFiles="";
+find "../lib" -name *.c | while read sFile; do
+	echo $sFile;
+	#sMatchA=`preg_match "^_" "$sFile"`;
+	#echo $sMatchA $sFile;
+	#if [[ "$sMatchA" == "" ]]; then
+	#	sObjectFile=`preg_replace '\.[^\.+]$' '.o' $sFile`;
+	#	echo $sFile $sObjectFile;
+	#	cc -c -o "$sObjectFile" "$sFile";
+	#	sObjectFiles="$sObjectFiles $sObjectFile";
+	#fi;
+done;
+
+echo 'sObjectFiles = '"$sObjectFiles";
+
+#rm ../lib/o3d/*.o;
+#rm runnable;
+#rm *.o;
